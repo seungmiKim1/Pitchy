@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@1,700&display=swap" rel="stylesheet">
+    <style> 
+        * {
+            background-color: #E0BFE6;
+            font-family: 'Arvo', serif;
+        }
+
+       .box1 { 
+        width:40%;
+        float:left;
+        text-align: center;
+        border-style:dashed;
+
+       }
+
+       .box2 { 
+        width:60%;
+        float: right;
+        text-align: center;
+        border-style:dashed;
+       
+       }
+
+    </style>
+    <script src="mintScript.js"></script>
+    <script src="config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/8.0.2/bignumber.js" integrity="sha512-XQDG6H87RgMf+aNFwDPCUcFwUf3t9liyqN/2BkJ8KGixupbjPwQHNhypNA972mLIkg4KPo4lkGmqAf3yfDz8hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+</head>
+<body>
+    <h1 align="center"> Hi ! We are NFT-Generating platform named 'Pitchy🍑'<br> 
+    You can generate your piece(NFT) music🎵 and mint them.<br> 
+    Enjoy your time at Pitchy 😊</h1>
+    <br>
+    <br>
+    <div class="box1">
+    <h1 align="center" span style="background-color:yellow">Step1) Check Information 
+        <br>for your Fresh Mint 🍃<h2>
+            
+        <p id="blockNubmer">Current Block: #00000000</p>
+        <p id="mintStartBlockNumber">Minting Start Block: #00000000</p>
+        <p id="mintPrice">Minting Price: 0 KLAY</p>
+        <p id="mintLimitPerBlock">Maximum quantity per transaction : 0</p>
+        <a href="https://scope.klaytn.com/">Check Current Block number at Klaytnscope </a><br>
+        <a href="https://klayswap.com/">Check Current Block number at Klayswap </a><br>
+    </div>
+
+   
+
+    <div class="box2">
+        <h1 align="center" span style="background-color:yellow" >Step2) Connecting Your Wallet</h2>
+        <img src="coinwallet.png" width="100px" height="100px"><br><br><br>
+        <button onclick="connect()" style="background-color:gray; width:200px; height:70px">Connect Kaikas Wallet</button>
+        <p id="myWallet">Wallet Address : Not Connected</p>
+        <p id="myKlay">Balance: Not Connected</p>
+    </div>
+
+<div>
+    <p style="text-align:center">
+        <img src="mintIcon.png">
+    </p>
+    <p align="center">Show me your files!</p>
+    <br>
+    <h1 align="center"  span style="background-color:yellow">Step3) Choose a File to Upload</h1>
+    <br><br>
+
+    <center>
+	<b>Track1</b> : <input type="file" id="input-file" style={display:"none"}} /> &nbsp
+	<b>Track2</b> : <input type="file" id="input-file" style={{display:"none"}} /> &nbsp
+	<b>Track3</b> : <input type="file" id="input-file" style={{display:"none"}} /> <br><br><br>
+	<b>Album Cover Upload</b> : <input type="file" id="input-file" style={{display:"none"}} />
+
+	<p id="mintCnt">0 / 0</p> <br><br><br><br><br>
+    <p id="mintCnt">0 / 0</p>
+	<label for="amount"><h1 align="center"  span style="background-color:yellow" >Step4) How much Minting do you need?</h1></label><br>
+    You can minting your music up to 3 (min 1 ~ max 3)<br><br>
+	<input type="number" id="amount" name="amount" min="1" max="3" value="1" style="width:100px;height:20px;font-size:20px"><button onclick="publicMint()" style="width:100px; height:25px; background-color:#5CFFD1;">Minting</button>
+	
+    
+	<script>
+		document.addEventListener("DOMContentLoaded", async function (event) {
+			const accounts = await klaytn.enable();
+			if (!accounts) {
+				alert("KaiKas 확장 프로그램을 활성화 해주세요!");
+			}
+			check_status();
+		});
+	</script> <br><br><br><br>
+    <button onClick="location.href = 'index.html'" style="background-color:yellow;">Back to Main Page</button>
+</center>
+</div>
+
+<br> 
+<br>
+<br> 
+<br>
+
+<div class="copyright" align="center"> © 2022 Copyright by Pitchy. All Rights Reserved. </div>
+</body>
+</html>
